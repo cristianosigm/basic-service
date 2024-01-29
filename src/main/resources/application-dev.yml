@@ -1,0 +1,49 @@
+# base application settings
+server:
+  port: 8090
+
+# database connection
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sigm
+    username: basicadm
+    password: obiwan
+  devtools:
+    add-properties: false
+  jackson:
+    default-property-inclusion: non_null
+  jpa:
+    open-in-view: false
+
+  # email settings
+  mail:
+    host: localhost
+    port: 8100
+    username: empty@email.com
+    password: mypassword
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+# application configurations
+climate-service:
+  mail:
+    from: dev@localhost
+  rules:
+    password:
+      min-length: 5
+      max-length: 10
+  security:
+    allowed-origins: http://localhost:4200
+    code-size: 12
+    maxFailedAttempts: 5
+    session-limit: 60
+
+# log settings
+logging:
+  level:
+    web: INFO
